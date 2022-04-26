@@ -1,20 +1,26 @@
 package teste;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+
+import pacote_exception.CpfException;
 
 public abstract class Pessoa {
 	protected String nome;
-	protected int cpf;
+	protected String cpf;
 	protected LocalDate dataNascimento;
-
-	public Pessoa(String nome, int cpf, LocalDate dataNascimento) {
+	
+	public Pessoa(String nome, String cpf, LocalDate dataNascimento) throws CpfException  {
 		super();
 		this.nome = nome;
-		this.cpf = cpf;
+			if (cpf.length() == 11) {
+				this.cpf = cpf;
+			}else {
+				throw new CpfException("Cpf deve conter 11 dígitos");
+			}
 		this.dataNascimento = dataNascimento;
 	}
-
-	
 
 	@Override
 	public String toString() {
@@ -29,11 +35,11 @@ public abstract class Pessoa {
 		this.nome = nome;
 	}
 
-	public int getCpf() {
+	public String getCpf() {
 		return cpf;
 	}
 
-	public void setCpf(int cpf) {
+	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
 
