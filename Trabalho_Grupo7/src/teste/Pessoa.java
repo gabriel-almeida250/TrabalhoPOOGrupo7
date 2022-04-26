@@ -1,9 +1,6 @@
 package teste;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
-
 import pacote_exception.CpfException;
 
 public abstract class Pessoa {

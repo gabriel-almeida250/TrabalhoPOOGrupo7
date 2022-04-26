@@ -14,6 +14,7 @@ public class TesteFun {
 		try {
 			Dependente d1 = new Dependente("Siclano",  "73911422654", LocalDate.of(2004, 04, 23), TipoParentesco.FILHO);
 			Dependente d2 = new Dependente("Beutrano",  "73911422654", LocalDate.of(2004, 04, 23), TipoParentesco.FILHO);
+			@SuppressWarnings("unused")
 			Dependente d3 = new Dependente("Azevedo",   "73911422654", LocalDate.of(2004, 04, 23), TipoParentesco.FILHO);
 			Funcionario f1 = new Funcionario("Fulano",  "73911422654", LocalDate.of(1999, 12, 26), TipoSalario.JOVEMAPRENDIZ,
 					List.of(d1, d2));
