@@ -1,0 +1,10 @@
+try (BufferedWriter bw = new BufferedWriter(new FileWriter(path2))) {
+
+			for (Funcionario resultado : listaFuncionarios) {
+				bw.write(resultado.getNome() + ";" 
+						+ String.format("%.2f", resultado.getSalarioBruto()) + ";"
+						+ resultado.getListaDependentes().size() + ";"
+						+ String.format("%.2f", resultado.getListaDependentes().size() * 189.59) + ";"
+						+ String.format("%.2f", resultado.calculoINSS()) + ";"
+						+ String.format("%.2f", resultado.calculoIR()) + ";"
+						+ Strin

@@ -122,5 +122,4 @@ public class Funcionario extends Pessoa implements Tributos {
  * (salarioDedutivel * 0.225) - 636.13;
  * 
  * }else{ return (salarioDedutivel * 0.275) - 869.36; } }
- * 
  */
