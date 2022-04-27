@@ -1,12 +1,12 @@
 package teste;
 
-import java.util.ArrayList;
+import java.util.Set;
 
 public class Empresa {
-	private int cnpj;
-	private ArrayList<Funcionario> funcionario;
+	private String cnpj;
+	private Set<Funcionario> funcionario;
 
-	public Empresa(int cnpj, ArrayList<Funcionario> funcionario) {
+	public Empresa(String cnpj, Set<Funcionario> funcionario) {
 		super();
 		this.cnpj = cnpj;
 		this.funcionario = funcionario;
@@ -17,11 +17,11 @@ public class Empresa {
 		return "Empresa [cnpj=" + cnpj + ", funcionario=" + funcionario + "]";
 	}
 
-	public int getCnpj() {
+	public String getCnpj() {
 		return cnpj;
 	}
 
-	public ArrayList<Funcionario> getFuncionario() {
+	public Set<Funcionario> getFuncionario() {
 		return funcionario;
 	}
 }

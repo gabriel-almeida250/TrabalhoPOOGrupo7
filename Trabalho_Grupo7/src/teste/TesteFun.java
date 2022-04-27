@@ -1,8 +1,8 @@
 package teste;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 import pacote_enum.TipoParentesco;
 import pacote_enum.TipoSalario;
@@ -12,11 +12,13 @@ import pacote_exception.IdadeException;
 public class TesteFun {
 	public static void main(String[] args) throws IdadeException {
 		try {
-			Dependente d1 = new Dependente("Valdeir",  "73911422654", LocalDate.of(2004, 04, 23), TipoParentesco.FILHO);
-			Dependente d2 = new Dependente("Zé",  "73911422654", LocalDate.of(2004, 04, 23), TipoParentesco.FILHO);
-			List<Dependente> dependentes1 = new ArrayList<>();
+			Dependente d1 = new Dependente("Valdeir", "73911422654", LocalDate.of(2004, 04, 23), TipoParentesco.FILHO);
+			Dependente d2 = new Dependente("Zé", "73911422654", LocalDate.of(2004, 04, 23), TipoParentesco.FILHO);
+			Dependente d6 = new Dependente("Fulano", "73911485654", LocalDate.of(2006, 04, 23), TipoParentesco.OUTROS);
+			Set<Dependente> dependentes1 = new HashSet<Dependente>();
 			dependentes1.add(d1);
 			dependentes1.add(d2);
+			dependentes1.add(d6);
 			Funcionario f1 = new Funcionario("Diego",  "73911422654", LocalDate.of(1999, 12, 26), TipoSalario.GERENTE,dependentes1);
 			System.out.println(f1);
 			System.out.println();
@@ -29,7 +31,7 @@ public class TesteFun {
 			Dependente d3 = new Dependente("Azevedo",   "73911422654", LocalDate.of(2004, 04, 23), TipoParentesco.FILHO);
 			Dependente d4 = new Dependente("Frederico", "31212132133", LocalDate.of(2005, 04, 23), TipoParentesco.OUTROS);
 			Dependente d5 = new Dependente("Arnaldo",   "21321321321", LocalDate.of(2006, 04, 23), TipoParentesco.SOBRINHO);
-			List<Dependente> dependentes2 = new ArrayList<>();
+			Set<Dependente> dependentes2 = new HashSet<>();
 			dependentes2.add(d3);
 			dependentes2.add(d4);
 			dependentes2.add(d5);

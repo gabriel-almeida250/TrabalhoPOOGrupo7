@@ -1,8 +1,7 @@
 package teste;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Set;
 
 import pacote_enum.TipoSalario;
 import pacote_exception.CpfException;
@@ -10,10 +9,10 @@ import pacote_interface.Tributos;
 
 public class Funcionario extends Pessoa implements Tributos {
 	private TipoSalario salarioBruto;
-	private List<Dependente> dependentes;
+	private Set<Dependente> dependentes;
 
 	public Funcionario(String nome, String cpf, LocalDate dataNascimento, TipoSalario salarioBruto,
-			List<Dependente> dependentes) throws CpfException {
+			Set<Dependente> dependentes) throws CpfException {
 		super(nome, cpf, dataNascimento);
 		this.salarioBruto = salarioBruto;
 		this.dependentes = dependentes;
@@ -29,7 +28,7 @@ public class Funcionario extends Pessoa implements Tributos {
 		return salarioBruto;
 	}
 
-	public List<Dependente> getDependente() {
+	public Set<Dependente> getDependente() {
 		return dependentes;
 	}
 
