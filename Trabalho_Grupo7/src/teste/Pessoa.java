@@ -1,6 +1,7 @@
 package teste;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Objects;
 
 import pacote_exception.CpfException;
@@ -23,7 +24,8 @@ public abstract class Pessoa {
 
 	@Override
 	public String toString() {
-		return "\nNome: " + nome + ", Cpf: " + cpf + ", Data Nascimento: " + dataNascimento;
+		DateTimeFormatter dft = DateTimeFormatter.ofPattern("YYYY/MM/dd");
+		return "\nNome: " + nome + ", Cpf: " + cpf + ", Data Nascimento: " + dataNascimento.format(dft);
 	}
 
 	public String getNome() {
