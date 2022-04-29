@@ -11,7 +11,7 @@ public class Dependente extends Pessoa {
 	private TipoParentesco tipoParentesco;
 
 	public Dependente(String nome, String cpf, LocalDate dataNascimento, TipoParentesco tipoParentesco)
-			throws IdadeException, CpfException {
+					  throws IdadeException, CpfException {
 		super(nome, cpf, dataNascimento);
 		Period periodo = dataNascimento.until(LocalDate.now());
 		if (periodo.getDays() >= 18) {

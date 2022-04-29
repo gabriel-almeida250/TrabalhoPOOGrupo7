@@ -10,15 +10,15 @@ public abstract class Pessoa {
 	protected String nome;
 	protected String cpf;
 	protected LocalDate dataNascimento;
-	
-	public Pessoa(String nome, String cpf, LocalDate dataNascimento) throws CpfException  {
+
+	public Pessoa(String nome, String cpf, LocalDate dataNascimento) throws CpfException {
 		super();
 		this.nome = nome;
-			if (cpf.length() == 11) {
-				this.cpf = cpf;
-			}else {
-				throw new CpfException("Cpf deve conter 11 dígitos");
-			}
+		if (cpf.length() == 11) {
+			this.cpf = cpf;
+		} else {
+			throw new CpfException("Cpf deve conter 11 dígitos");
+		}
 		this.dataNascimento = dataNascimento;
 	}
 

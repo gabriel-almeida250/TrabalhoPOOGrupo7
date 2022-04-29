@@ -12,8 +12,8 @@ public class Funcionario extends Pessoa implements Tributos {
 	private TipoFuncionario cargo;
 	private Set<Dependente> dependentes;
 
-	public Funcionario(String nome, String cpf, LocalDate dataNascimento,TipoFuncionario cargo, TipoFuncionario salarioBruto,
-			Set<Dependente> dependentes) throws CpfException {
+	public Funcionario(String nome, String cpf, LocalDate dataNascimento, TipoFuncionario cargo,
+					   TipoFuncionario salarioBruto, Set<Dependente> dependentes) throws CpfException {
 		super(nome, cpf, dataNascimento);
 		this.cargo = cargo;
 		this.salarioBruto = salarioBruto;
@@ -22,8 +22,8 @@ public class Funcionario extends Pessoa implements Tributos {
 
 	@Override
 	public String toString() {
-		return "Funcionário: \n--------------" + super.toString() + ", Cargo: " + cargo.getCargo() + ", Salário Bruto:" + salarioBruto.getSalario()
-				+ "\n\nDependentes: \n--------------" + dependentes;
+		return "Funcionário: \n--------------" + super.toString() + ", Cargo: " + cargo.getCargo() + ", Salário Bruto:"
+				+ salarioBruto.getSalario() + "\n\nDependentes: \n--------------" + dependentes;
 	}
 
 	public TipoFuncionario getSalarioBruto() {
@@ -33,7 +33,7 @@ public class Funcionario extends Pessoa implements Tributos {
 	public Set<Dependente> getDependente() {
 		return dependentes;
 	}
-	
+
 	public TipoFuncionario getCargo() {
 		return cargo;
 	}
@@ -86,12 +86,11 @@ public class Funcionario extends Pessoa implements Tributos {
 		}
 		return calculoIR;
 	}
+
 	public double salarioliquido() {
 		double valor = 0.0;
 		valor = this.salarioBruto.getSalario() - descontoIR() - descontoInss();
 		return valor;
 	}
-
-	
 
 }
