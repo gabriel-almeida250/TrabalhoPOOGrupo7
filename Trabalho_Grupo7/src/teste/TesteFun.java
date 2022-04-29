@@ -36,7 +36,7 @@ public class TesteFun {
 			System.out.printf("Salário Líquido R$:%.2f\n", f1.salarioliquido());
 			System.out.println("======= FIM =======");
 			System.out.println();
-			Funcionario f2 = new Funcionario("Douglas", "13513245465", LocalDate.of(1958, 02, 11),TipoFuncionario.JOVEMAPRENDIZ, TipoFuncionario.JOVEMAPRENDIZ, dependentes2);
+			Funcionario f2 = new Funcionario("Douglas", "13513245465", LocalDate.of(1958, 02, 11),TipoFuncionario.valueOf(TipoFuncionario.JOVEMAPRENDIZ.getCargo()), TipoFuncionario.JOVEMAPRENDIZ, dependentes2);
 			System.out.println(f2);
 			System.out.println();
 			System.out.printf("Desconto Inss R$:%.2f",    f2.descontoInss());
