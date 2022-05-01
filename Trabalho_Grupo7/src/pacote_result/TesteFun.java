@@ -1,15 +1,16 @@
-package teste;
+package pacote_result;
+/*package pacote_executer;
 
 import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
 
-import pacote_enum.TipoFuncionario;
 import pacote_enum.TipoParentesco;
-import pacote_exception.CpfException;
+import pacote_exception.CpfTamanhoException;
 import pacote_exception.IdadeException;
 
 public class TesteFun {
+	@SuppressWarnings("unused")
 	public static void main(String[] args) throws IdadeException {
 		Set<Dependente> dependentes1 = new HashSet<Dependente>();
 		Set<Dependente> dependentes2 = new HashSet<Dependente>();
@@ -25,8 +26,7 @@ public class TesteFun {
 			dependentes1.add(d3);
 			dependentes2.add(d4);
 			dependentes2.add(d5);
-			dependentes2.add(d6);
-			Funcionario f1 = new Funcionario("Diego", "73911422654", LocalDate.of(1999, 12, 26),TipoFuncionario.GERENTE, TipoFuncionario.GERENTE,dependentes1);
+			Funcionario f1 = new Funcionario("Diego", "73911422654", LocalDate.of(1999, 12, 26),1387.00);
 			System.out.println(f1);
 			System.out.println();
 			System.out.println("Contra Cheque:");
@@ -36,7 +36,7 @@ public class TesteFun {
 			System.out.printf("Salário Líquido R$:%.2f\n", f1.salarioliquido());
 			System.out.println("======= FIM =======");
 			System.out.println();
-			Funcionario f2 = new Funcionario("Douglas", "13513245465", LocalDate.of(1958, 02, 11),TipoFuncionario.valueOf(TipoFuncionario.JOVEMAPRENDIZ.getCargo()), TipoFuncionario.JOVEMAPRENDIZ, dependentes2);
+			Funcionario f2 = new Funcionario("Douglas", "13513245465", LocalDate.of(1958, 02, 11), 8500.00);
 			System.out.println(f2);
 			System.out.println();
 			System.out.printf("Desconto Inss R$:%.2f",    f2.descontoInss());
@@ -45,8 +45,9 @@ public class TesteFun {
 			System.out.println("======= FIM =======");
 		} catch (IdadeException e) {
 			System.out.println(e.getMessage());
-		} catch (CpfException e) {
+		} catch (CpfTamanhoException e) {
 			System.out.println(e.getMessage());
 		}
 	}
-}
+}*/
+

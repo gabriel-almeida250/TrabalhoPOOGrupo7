@@ -2,8 +2,8 @@ package pacote_interface;
 
 public interface Tributos {
 
-	public double descontoInss();
+	public Double descontoInss();
 
-	public double descontoIR();
+	public Double descontoIR();
 
 }
