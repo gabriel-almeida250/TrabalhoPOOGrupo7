@@ -59,11 +59,11 @@ public class Funcionario extends Pessoa implements Tributos {
 	}
 
 	private final Double calculoBase() {
-		double valorSalarioDependenteInss = 0.0;
+		double valorDependente = 0.0;
 		for (Dependente dependente : dependentes) {
-			valorSalarioDependenteInss += dependente.getTipoParentesco().getDesconto();
+			valorDependente += dependente.getTipoParentesco().getDesconto();
 		}
-		return this.salarioBruto - valorSalarioDependenteInss - this.descontoInss();
+		return this.salarioBruto - valorDependente - this.descontoInss();
 	}
 
 	public Double descontoIR() {

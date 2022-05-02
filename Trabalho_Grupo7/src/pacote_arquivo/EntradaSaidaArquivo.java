@@ -1,11 +1,11 @@
 package pacote_arquivo;
 
+import java.io.BufferedWriter;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 import java.text.DecimalFormat;
 import java.time.LocalDate;
@@ -57,7 +57,6 @@ public class EntradaSaidaArquivo {
 			}
 			if (funcionario != null) {
 				listaFuncionarios.add(funcionario);
-				leia.close();
 			}
 		} catch (CpfTamanhoException e) {
 			System.out.println(e.getMessage());
@@ -65,32 +64,32 @@ public class EntradaSaidaArquivo {
 		} catch (IdadeException e) {
 			System.out.println(e.getMessage());
 			e.printStackTrace();
-		} 
+		} finally {
+			leia.close();
+		}
 		for (Funcionario funcionarios : listaFuncionarios) {
 			System.out.println(funcionarios);
 			System.out.println();
 		}
 		return listaFuncionarios;
 	}
-		public void saidaArquivo (Set<Funcionario> listaFuncionarios, String arquivo) {
-			DecimalFormat deci = new DecimalFormat("0.00");
-			FileWriter arquivoSaida = null;
-		try {
-			arquivoSaida = new FileWriter(arquivo);
-		} catch (IOException e) {
-			System.out.println(e.getMessage());
-			e.printStackTrace();
-		}
-		PrintWriter pw = new PrintWriter(arquivoSaida);
+		public void saidaArquivo (Set<Funcionario> listaFuncionarios, String arquivo) throws IOException {
+			DecimalFormat df = new DecimalFormat("0.00");
+			BufferedWriter bw = null;
+			try {
+				bw = new BufferedWriter(new FileWriter (arquivo));
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 		
 		for (Funcionario funcionario : listaFuncionarios) {
 			String linha = funcionario.getNome() + ";" +
 						   funcionario.getCpf() + ";" +
-						   deci.format(funcionario.descontoInss()) + ";" +
-						   deci.format(funcionario.descontoIR()) + ";" +
-						   deci.format(funcionario.salarioliquido()) + "\n";
-			pw.print(linha);
+						   df.format(funcionario.descontoInss()) + ";" +
+						   df.format(funcionario.descontoIR()) + ";" +
+						   df.format(funcionario.salarioliquido()) + "\n";
+			bw.append(linha);
 		}
-		pw.close();
+		bw.close();
 	}
 }
