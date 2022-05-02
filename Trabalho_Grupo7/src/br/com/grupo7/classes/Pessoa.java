@@ -1,10 +1,10 @@
-package pacote_class;
+package br.com.grupo7.classes;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Objects;
 
-import pacote_exception.CpfTamanhoException;
+import br.com.grupo7.excecoes.CpfTamanhoException;
 
 public abstract class Pessoa {
 	protected String nome;

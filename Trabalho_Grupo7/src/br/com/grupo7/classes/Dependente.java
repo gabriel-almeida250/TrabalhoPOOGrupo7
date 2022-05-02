@@ -1,11 +1,11 @@
-package pacote_class;
+package br.com.grupo7.classes;
 
 import java.time.LocalDate;
 import java.time.Period;
 
-import pacote_enum.TipoParentesco;
-import pacote_exception.CpfTamanhoException;
-import pacote_exception.IdadeException;
+import br.com.grupo7.enumerador.TipoParentesco;
+import br.com.grupo7.excecoes.CpfTamanhoException;
+import br.com.grupo7.excecoes.IdadeException;
 
 public class Dependente extends Pessoa {
 	private TipoParentesco tipoParentesco;
@@ -15,7 +15,7 @@ public class Dependente extends Pessoa {
 		super(nome, cpf, dataNascimento);
 		Period periodo = dataNascimento.until(LocalDate.now());
 		if (periodo.getYears() > 18) {
-			throw new IdadeException("Dependente deve ter menos de 18 anos");
+			throw new IdadeException("Dependente precisa ser menor de 18 anos");
 		}
 		this.tipoParentesco = tipoParentesco;
 	}

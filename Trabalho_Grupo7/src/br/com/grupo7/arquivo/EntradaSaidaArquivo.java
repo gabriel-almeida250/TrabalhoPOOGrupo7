@@ -1,4 +1,4 @@
-package pacote_arquivo;
+package br.com.grupo7.arquivo;
 
 import java.io.BufferedWriter;
 import java.io.FileInputStream;
@@ -14,14 +14,14 @@ import java.util.HashSet;
 import java.util.Scanner;
 import java.util.Set;
 
-import pacote_class.Dependente;
-import pacote_class.Funcionario;
-import pacote_enum.TipoParentesco;
-import pacote_exception.CpfTamanhoException;
-import pacote_exception.IdadeException;
+import br.com.grupo7.classes.Dependente;
+import br.com.grupo7.classes.Funcionario;
+import br.com.grupo7.enumerador.TipoParentesco;
+import br.com.grupo7.excecoes.CpfTamanhoException;
+import br.com.grupo7.excecoes.IdadeException;
 
 public class EntradaSaidaArquivo {
-	public Set<Funcionario>  entradaArquivo(String arquivo) throws UnsupportedEncodingException, FileNotFoundException  {
+	public Set<Funcionario>  entradaArquivo(String arquivo) throws UnsupportedEncodingException, FileNotFoundException   {
 		Set<Funcionario> listaFuncionarios = new HashSet<>();
 		Funcionario funcionario = null;
 		Scanner leia = new Scanner(new InputStreamReader(new FileInputStream(arquivo), "UTF-8"));
@@ -83,11 +83,11 @@ public class EntradaSaidaArquivo {
 			}
 		
 		for (Funcionario funcionario : listaFuncionarios) {
-			String linha = funcionario.getNome() + ";" +
-						   funcionario.getCpf() + ";" +
-						   df.format(funcionario.descontoInss()) + ";" +
-						   df.format(funcionario.descontoIR()) + ";" +
-						   df.format(funcionario.salarioliquido()) + "\n";
+			String linha =   funcionario.getNome() + ";" 
+						   + funcionario.getCpf() + ";" 
+						   + df.format(funcionario.descontoInss()) + ";" 
+						   + df.format(funcionario.descontoIR()) + ";" 
+						   + df.format(funcionario.salarioliquido()) + "\n";
 			bw.append(linha);
 		}
 		bw.close();

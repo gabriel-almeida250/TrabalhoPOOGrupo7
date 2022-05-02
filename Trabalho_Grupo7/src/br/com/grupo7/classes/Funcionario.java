@@ -1,13 +1,13 @@
-package pacote_class;
+package br.com.grupo7.classes;
 
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.HashSet;
 import java.util.Set;
 
-import pacote_exception.CpfTamanhoException;
-import pacote_exception.IdadeException;
-import pacote_interface.Tributos;
+import br.com.grupo7.excecoes.CpfTamanhoException;
+import br.com.grupo7.excecoes.IdadeException;
+import br.com.grupo7.interfaces.Tributos;
 
 public class Funcionario extends Pessoa implements Tributos {
 	private Double salarioBruto;
@@ -18,7 +18,7 @@ public class Funcionario extends Pessoa implements Tributos {
 		super(nome, cpf, dataNascimento);
 		Period periodo = dataNascimento.until(LocalDate.now());
 		if (periodo.getYears() < 18) {
-			throw new IdadeException("Funcionario tem que ter mais de 18 anos");
+			throw new IdadeException("O Funcionario precisa ser maior de 18 anos");
 		}
 		this.salarioBruto = salarioBruto;
 	}
