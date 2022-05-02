@@ -14,7 +14,7 @@ public class Dependente extends Pessoa {
 			throws IdadeException, CpfTamanhoException {
 		super(nome, cpf, dataNascimento);
 		Period periodo = dataNascimento.until(LocalDate.now());
-		if (periodo.getYears() >  18) {
+		if (periodo.getYears() > 18) {
 			throw new IdadeException("Dependente deve ter menos de 18 anos");
 		}
 		this.tipoParentesco = tipoParentesco;
@@ -22,7 +22,7 @@ public class Dependente extends Pessoa {
 
 	@Override
 	public String toString() {
-		return "\n" +super.toString() + ";" + tipoParentesco;
+		return "\n" + super.toString() + ";" + tipoParentesco;
 	}
 
 	public TipoParentesco getTipoParentesco() {

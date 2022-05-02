@@ -13,7 +13,8 @@ public class Funcionario extends Pessoa implements Tributos {
 	private Double salarioBruto;
 	private Set<Dependente> dependentes = new HashSet<Dependente>();
 
-	public Funcionario(String nome, String cpf, LocalDate dataNascimento, Double salarioBruto) throws CpfTamanhoException, IdadeException {
+	public Funcionario(String nome, String cpf, LocalDate dataNascimento, Double salarioBruto)
+			throws CpfTamanhoException, IdadeException {
 		super(nome, cpf, dataNascimento);
 		Period periodo = dataNascimento.until(LocalDate.now());
 		if (periodo.getYears() < 18) {
@@ -26,7 +27,7 @@ public class Funcionario extends Pessoa implements Tributos {
 	public String toString() {
 		return super.toString() + ";" + salarioBruto + dependentes;
 	}
-	
+
 	public Double getSalarioBruto() {
 		return salarioBruto;
 	}
@@ -57,7 +58,7 @@ public class Funcionario extends Pessoa implements Tributos {
 		return calculoInss;
 	}
 
-	private final Double calculoSalarioDependenteInss() {
+	private final Double calculoBase() {
 		double valorSalarioDependenteInss = 0.0;
 		for (Dependente dependente : dependentes) {
 			valorSalarioDependenteInss += dependente.getTipoParentesco().getDesconto();
@@ -67,19 +68,19 @@ public class Funcionario extends Pessoa implements Tributos {
 
 	public Double descontoIR() {
 		double calculoIR = 0.0;
-		if (this.salarioBruto < 1903.98) {
+		if (calculoBase() < 1903.98) {
 			return calculoIR = 0;
-		} else if (this.salarioBruto < 2826.65) {
-			calculoIR = ((calculoSalarioDependenteInss()) * 0.075) - 142.80;
+		} else if (calculoBase() < 2826.65) {
+			calculoIR = ((calculoBase()) * 0.075) - 142.80;
 			return calculoIR;
-		} else if (this.salarioBruto < 3751.05) {
-			calculoIR = ((calculoSalarioDependenteInss()) * 0.15) - 354.80;
+		} else if (calculoBase() < 3751.05) {
+			calculoIR = ((calculoBase()) * 0.15) - 354.80;
 			return calculoIR;
-		} else if (this.salarioBruto < 4664.68) {
-			calculoIR = ((calculoSalarioDependenteInss()) * 0.225) - 636.13;
+		} else if (calculoBase() < 4664.68) {
+			calculoIR = ((calculoBase()) * 0.225) - 636.13;
 			return calculoIR;
-		} else if (this.salarioBruto >= 4664.68) {
-			calculoIR = ((calculoSalarioDependenteInss()) * 0.275) - 869.36;
+		} else if (calculoBase() > 4664.68) {
+			calculoIR = ((calculoBase()) * 0.275) - 869.36;
 		}
 		return calculoIR;
 	}
